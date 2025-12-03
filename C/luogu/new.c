@@ -1,44 +1,31 @@
 #include <stdio.h>
+#include <string.h>
+#define MAX(a, b) a > b ? a : b
+#define MIN(a, b) a > b ? b : a
+char a[1000], b[1000], c[1000][1000];
 
-char num[500];
-int k;
-void jian(int a) {
-    num[0] -= a;
-    for (size_t i = 0; i < k; i++) {
-        while (num[i] < 0) {
-            num[i + 1]--;
-            num[i] += 10;
+char mul(char *str1, char *str2) {
+    int max = MAX(strlen(str1), strlen(str2));
+    int min = MIN(strlen(str1), strlen(str2));
+    for (size_t i = 0; i < min; i++) {
+        for (size_t j = 0; j < max; j++) {
+            c[i][j] = a[i] * b[j];
         }
     }
-    while (num[k + 1] == 0) {
-        k--;
-        num[k] = '\0';
+    memset(a,0,1000);
+    for (size_t i = 0; i < max; i++) {
+        for (size_t j = 0; j < min; j++) {
+            for (size_t k = 0; k < min; k++) {
+                a[i] += c[j][k];
+            }
+        }
     }
-}
-
-int chen(int a){
-    for (size_t i = 0; i < k; i++)
-    {
-        printf(" ");
-    }
-    
 }
 
 int main() {
-    int n;
-    scanf("%d", &n);
-    while (n > 0) {
-        num[k++] = n % 10;
-        n /= 10;
-    }
-    // for (size_t i = 0; i < k; i++) {
-    //     /* code */
-    // }
-    jian(1);
-    for (size_t i = 0; i < k; i++)
-    {
-        printf("%d",num[i]);
-    }
-    
+    char n;
+    scanf("%s", &n);
+    mul(&n, &n);
+    printf("%s",a);
     return 0;
 }
