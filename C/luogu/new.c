@@ -1,31 +1,33 @@
-#include <stdio.h>
-#include <string.h>
-#define MAX(a, b) a > b ? a : b
-#define MIN(a, b) a > b ? b : a
-char a[1000], b[1000], c[1000][1000];
+#include<stdio.h>
+int a[20][20];
 
-char mul(char *str1, char *str2) {
-    int max = MAX(strlen(str1), strlen(str2));
-    int min = MIN(strlen(str1), strlen(str2));
-    for (size_t i = 0; i < min; i++) {
-        for (size_t j = 0; j < max; j++) {
-            c[i][j] = a[i] * b[j];
+int main(){
+    int n,k=0,x=0,y=0;
+    scanf("%d",&n);
+    while(k<=n*n){
+        while(x<n-1&&a[x+1][y]==0){
+            a[x][y]=++k;
+            ++x;
+        }
+        while(y<n-1&&a[x][y+1]==0){
+            a[x][y]=++k;
+            ++y;
+        }
+        while(x>0&&a[x-1][y]==0){
+            a[x][y]=++k;
+            --x;
+        }
+        while(y>0&&a[x][y-1]==0){
+            a[x][y]=++k;
+            --y;
         }
     }
-    memset(a,0,1000);
-    for (size_t i = 0; i < max; i++) {
-        for (size_t j = 0; j < min; j++) {
-            for (size_t k = 0; k < min; k++) {
-                a[i] += c[j][k];
-            }
+    for(int i=0;i<n;++i){
+        for(int j=0;j<n;++j){
+            if(a[j][i]<10)printf(" ");
+            printf(" %d",a[j][i]);
         }
+        printf("\n");
     }
-}
-
-int main() {
-    char n;
-    scanf("%s", &n);
-    mul(&n, &n);
-    printf("%s",a);
     return 0;
 }

