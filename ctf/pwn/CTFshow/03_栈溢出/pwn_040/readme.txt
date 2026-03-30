@@ -1,0 +1,1 @@
+64位的 system(); "/bin/sh"

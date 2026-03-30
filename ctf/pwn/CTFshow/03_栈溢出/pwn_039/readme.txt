@@ -1,0 +1,1 @@
+32位的 system(); "/bin/sh"
