@@ -1,2 +1,0 @@
-sbrk and brk example
-
