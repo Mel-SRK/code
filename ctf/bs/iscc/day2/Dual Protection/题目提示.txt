@@ -1,0 +1,25 @@
+双重保护
+
+关键逻辑
+程序要求输入长度必须是 0x24，也就是 36 字节。主逻辑对每个字节依次跑 3 个变换函数：
+
+stage1: b = rol8(b ^ 0x55, 2) + i
+stage2: b = (b ^ key[i % 8]) + 0x7f
+stage3: b = b ^ (i + 0x20)
+其中 key 是：
+
+12 34 56 78 90 AB CD EF
+之后程序会调用 CheckRemoteDebuggerPresent。非调试状态下种子保持 0xDEADBEEF，从 0x40FEE0 复制 0x118 字节到 VirtualAlloc 出来的 RWX 内存，再用这个 LCG 解密第二阶段代码：
+
+state = state * 0x19660d + 0x3c6ef35f
+code[i] ^= state >> 24
+第二阶段代码开头还会读 PEB 的 BeingDebugged，调试状态直接失败；正常路径则把变换后的 36 字节逐字节和目标密文比较。
+
+目标密文是：
+
+C1 8D A9 81 8F 98 EC D1 ED 50 66 25 E8 AC 54 DD
+7E 79 79 4D F3 85 D7 A4 D5 9C B5 6C 3F 34 DF F1
+DE E9 35 79
+我按相反顺序逆回去，并重新正向跑了一遍校验，得到的密文和第二阶段比较数组完全一致：
+
+matches: True
