@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="autofill">آٹو فل</string>
+    <string name="default_error_message">غلط ان پٹ</string>
+    <string name="default_popup_window_title">پاپ اپ ونڈو</string>
+    <string name="in_progress">پیشرفت میں</string>
+    <string name="indeterminate">جزوی طور پر چیک کردہ</string>
+    <string name="not_selected">غیر منتخب کردہ</string>
+    <string name="selected">منتخب کردہ</string>
+    <string name="state_empty">خالی ہے</string>
+    <string name="template_percent">%1$d فیصد۔</string>
+</resources>

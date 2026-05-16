@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="autofill">Автотолтуруу функиясы</string>
+    <string name="default_error_message">Киргизилген маалымат жараксыз</string>
+    <string name="default_popup_window_title">Калкыма терезе</string>
+    <string name="in_progress">Аткарылууда</string>
+    <string name="indeterminate">Жарым-жартылай текшерилди</string>
+    <string name="not_selected">Тандалган жок</string>
+    <string name="selected">Тандалды</string>
+    <string name="state_empty">Бош</string>
+    <string name="template_percent">%1$d пайыз.</string>
+</resources>

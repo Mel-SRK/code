@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="autofill">ऑटोफिल</string>
+    <string name="default_error_message">इनपुट चुकीचे आहे</string>
+    <string name="default_popup_window_title">पॉप-अप विंडो</string>
+    <string name="in_progress">प्रगतीपथावर आहे</string>
+    <string name="indeterminate">अंशतः तपासले</string>
+    <string name="not_selected">निवडला नाही</string>
+    <string name="selected">निवडला</string>
+    <string name="state_empty">रिक्त</string>
+    <string name="template_percent">%1$d टक्के.</string>
+</resources>

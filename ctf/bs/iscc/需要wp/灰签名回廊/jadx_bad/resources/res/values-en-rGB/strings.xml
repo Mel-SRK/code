@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="autofill">Autofill</string>
+    <string name="default_error_message">Invalid input</string>
+    <string name="default_popup_window_title">Pop-up window</string>
+    <string name="in_progress">In progress</string>
+    <string name="indeterminate">Partially ticked</string>
+    <string name="not_selected">Not selected</string>
+    <string name="selected">Selected</string>
+    <string name="state_empty">Empty</string>
+    <string name="template_percent">%1$d per cent.</string>
+</resources>

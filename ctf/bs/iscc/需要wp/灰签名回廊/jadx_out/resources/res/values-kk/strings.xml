@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="autofill">Автотолтыру</string>
+    <string name="default_error_message">Енгізілген мән жарамсыз.</string>
+    <string name="default_popup_window_title">Қалқымалы терезе</string>
+    <string name="in_progress">Орындалуда</string>
+    <string name="indeterminate">Жартылай белгіленді.</string>
+    <string name="not_selected">Таңдалмады</string>
+    <string name="selected">Таңдалды</string>
+    <string name="state_empty">Бос</string>
+    <string name="template_percent">%1$d пайыз.</string>
+</resources>

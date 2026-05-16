@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="autofill">ઑટોમૅટિક રીતે ભરવાની સુવિધા</string>
+    <string name="default_error_message">અમાન્ય ઇનપુટ</string>
+    <string name="default_popup_window_title">પૉપ-અપ વિન્ડો</string>
+    <string name="in_progress">પ્રક્રિયામાં છે</string>
+    <string name="indeterminate">આંશિક રીતે ચેક કરેલા વિકલ્પો</string>
+    <string name="not_selected">પસંદગી કરી નથી</string>
+    <string name="selected">પસંદગી કરી</string>
+    <string name="state_empty">ખાલી</string>
+    <string name="template_percent">%1$d ટકા.</string>
+</resources>

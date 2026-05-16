@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="autofill">ऑटोमैटिक तरीके से भरें</string>
+    <string name="default_error_message">अमान्य इनपुट</string>
+    <string name="default_popup_window_title">पॉप-अप विंडो</string>
+    <string name="in_progress">जारी है</string>
+    <string name="indeterminate">कुछ विकल्पों को चुना गया</string>
+    <string name="not_selected">नहीं चुना गया</string>
+    <string name="selected">चुना गया</string>
+    <string name="state_empty">कोई भी तार नहीं लगा है</string>
+    <string name="template_percent">%1$d प्रतिशत.</string>
+</resources>
