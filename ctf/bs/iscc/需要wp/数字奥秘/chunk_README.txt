@@ -1,1 +1,0 @@
-1. Run vm.py to get sensor data\n2. If data looks incorrect, check vm.py for bugs\n3. Use correct data with PERIODS to solve constraints\n4. Decrypt payload with the key
